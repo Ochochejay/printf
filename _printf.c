@@ -29,7 +29,8 @@ int _printf(const char *format, ...)
 			else
 			{
 				f = specifier(format[i]);
-				len += f(args);
+				if (f)
+					len += f(args);
 			}
 		}
 
