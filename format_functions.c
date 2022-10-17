@@ -11,6 +11,6 @@ int char_format(va_list arg)
 	char c;
 
 	c = va_arg(arg, int);
-	write(1, &c, 1)
+	write(1, &c, 1);
 	return (1);
 }
