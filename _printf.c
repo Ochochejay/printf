@@ -12,11 +12,10 @@ int _printf(const char *format, ...)
 {
 	identifier id[] = {
 		{'c', char_format},
-		{NULL, NULL}
 	};
 
 	int i, j, k, len = 0;
-	va_list arg;
+	va_list args;
 
 	if (format == NULL)
 		return (-1);
@@ -28,17 +27,18 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			j = 0;
-			while (id[j].fp)
+			while ((id[j].fp))
 			{
 				if (id[j].fp == format[i])
 				{
-					k = id[j].fp == format[i])
+					k = id[j].ptr(args);
 					len += k;
 					break;
 				}
 				j++;
 			}
 		}
+
 		else
 		{
 			write(1, format + i, 1);
