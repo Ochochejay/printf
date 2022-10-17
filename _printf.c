@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 {
 	identifier id[] = {
 		{'c', char_format},
+		{'s', str_format},
 	};
 
 	int i, j, k, len = 0;
