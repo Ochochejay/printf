@@ -10,13 +10,9 @@
 
 int _printf(const char *format, ...)
 {
-	identifier id[] = {
-		{'c', char_format},
-		{'s', str_format},
-	};
-
-	int i, j, k, len = 0;
+	int i, len = 0;
 	va_list args;
+	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
@@ -27,26 +23,21 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			j = 0;
-			while ((id[j].fp))
+			if (format[i] == '%')
+				len += write(1, (format + i), 1);
+			else
 			{
-				if (id[j].fp == format[i])
-				{
-					k = id[j].ptr(args);
-					len += k;
-					break;
-				}
-				j++;
+				f = specifier(format[i]);
+				len += f(args);
 			}
 		}
 
 		else
-		{
-			write(1, format + i, 1);
-			len++;
-		}
+			len += write(1, format + i, 1);
+
 		i++;
 	}
+
 	va_end(args);
 	return (len);
 }

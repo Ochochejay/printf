@@ -21,5 +21,6 @@ typedef struct identifier
 int _printf(const char *format, ...);
 int char_format(va_list arg);
 int str_format(va_list arg);
+int (*specifier(char c))(va_list);
 
 #endif /*MAIN_H*/
