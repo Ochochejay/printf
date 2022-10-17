@@ -24,12 +24,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '%')
+			if (!format[i])
+				return (-1);
+
+			else if (format[i] == '%')
 				len += write(1, (format + i), 1);
+
 			else
 			{
 				f = specifier(format[i]);
-				if (f)
 					len += f(args);
 			}
 		}
