@@ -44,10 +44,10 @@ int str_format(va_list arg)
  */
 int int_format(va_list arg)
 {
-	int len = 0, i;
+	int len = 0, i = 0;
 	long int num;
 	char c;
-	int buf[10];
+	int buf[20];
 
 	num = va_arg(arg, int);
 	if (num < 0)
