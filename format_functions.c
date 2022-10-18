@@ -116,3 +116,40 @@ int binary_format(va_list arg)
 	}
 	return (len);
 }
+
+/**
+ * octal_format - prints the octal of a decimal
+ *
+ * @arg: va_list of integers
+ * Return: number of bytes
+ *
+ */
+int octal_format(va_list arg)
+{
+	unsigned int len = 0, num;
+	int i = 0;
+	char c;
+	int buf[100];
+
+	num = va_arg(arg, unsigned int);
+
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	while (num)
+	{
+		buf[i] = num % 8;
+		num = num / 8;
+		len++, i++;
+	}
+	i--;
+
+	for (; i >= 0; i--)
+	{
+		c = buf[i] + 48;
+		write(1, &c, 1);
+	}
+	return (len);
+}
