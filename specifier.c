@@ -13,6 +13,7 @@ int (*specifier(char c))(va_list)
 		{'s', str_format},
 		{'d', int_format},
 		{'i', int_format},
+		{'b', binary_format},
 		{'\0', NULL}
 	};
 	int i = 0;
