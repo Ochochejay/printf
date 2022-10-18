@@ -129,7 +129,7 @@ int octal_format(va_list arg)
 	unsigned int len = 0, num;
 	int i = 0;
 	char c;
-	int buf[100];
+	unsigned int buf[100];
 
 	num = va_arg(arg, unsigned int);
 
