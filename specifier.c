@@ -10,7 +10,8 @@ int (*specifier(char c))(va_list)
 {
 	identifier id[] = {
 		{'c', char_format},
-		{'s', str_format}
+		{'s', str_format},
+		{'\0', NULL}
 	};
 	int i = 0;
 

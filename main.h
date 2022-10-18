@@ -14,7 +14,7 @@
  */
 typedef struct identifier
 {
-	char *fp;
+	char fp;
 	int (*ptr)(va_list);
 } identifier;
 
