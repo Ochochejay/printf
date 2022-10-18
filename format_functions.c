@@ -89,17 +89,11 @@ int int_format(va_list arg)
 int binary_format(va_list arg)
 {
 	unsigned int len = 0;
-	int i, num;
+	int i = 0, num;
 	char c;
 	int buf[1000000];
 
 	num = va_arg(arg, unsigned int);
-	if (num < 0)
-	{
-		num *= -1;
-		write(1, "-", 1);
-		len++;
-	}
 
 	if (num == 0)
 	{
