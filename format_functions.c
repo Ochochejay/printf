@@ -91,7 +91,7 @@ int binary_format(va_list arg)
 	unsigned int len = 0;
 	int i, num;
 	char c;
-	int buf[100];
+	int buf[1000000];
 
 	num = va_arg(arg, unsigned int);
 	if (num < 0)
