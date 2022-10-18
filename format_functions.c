@@ -44,9 +44,10 @@ int str_format(va_list arg)
  */
 int int_format(va_list arg)
 {
-	int len = 0, i, num;
-	int c;
-	int buf[1000000];
+	int len = 0, i;
+	long int num;
+	char c;
+	int buf[10];
 
 	num = va_arg(arg, int);
 	if (num < 0)
@@ -64,11 +65,11 @@ int int_format(va_list arg)
 
 	while (num)
 	{
-		buf[len] = num % 10;
+		buf[i] = num % 10;
 		num = num / 10;
-		len++;
+		len++, i++;
 	}
-	i = len - 1;
+	i--;
 
 	for (; i >= 0; i--)
 	{
