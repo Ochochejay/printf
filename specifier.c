@@ -15,6 +15,8 @@ int (*specifier(char c))(va_list)
 		{'i', int_format},
 		{'b', binary_format},
 		{'o', octal_format},
+		{'X', big_hex_format},
+		{'x', small_hex_format},
 		{'\0', NULL}
 	};
 	int i = 0;
