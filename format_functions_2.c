@@ -12,6 +12,7 @@ int big_hex_format(va_list arg)
 {
 	int buf[10];
 	int i = 0, len = 0, num;
+	unsigned int n;
 	char c;
 
 	num = va_arg(arg, int);
@@ -21,10 +22,12 @@ int big_hex_format(va_list arg)
 		write(1, "0", 1);
 		return (1);
 	}
-	while (num)
+
+	n = num;
+	while (n)
 	{
-		buf[i] = num % 16;
-		num /= 16;
+		buf[i] = n % 16;
+		n /= 16;
 		len++, i++;
 	}
 	i--;
@@ -52,6 +55,7 @@ int small_hex_format(va_list arg)
 {
 	int buf[10];
 	int i = 0, len = 0, num;
+	unsigned int n;
 	char c;
 
 	num = va_arg(arg, int);
@@ -61,10 +65,12 @@ int small_hex_format(va_list arg)
 		write(1, "0", 1);
 		return (1);
 	}
-	while (num)
+
+	n = num;
+	while (n)
 	{
-		buf[i] = num % 16;
-		num /= 16;
+		buf[i] = n % 16;
+		n /= 16;
 		len++, i++;
 	}
 	i--;
