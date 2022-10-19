@@ -116,3 +116,32 @@ int unsigned_format(va_list arg)
 	}
 	return (len);
 }
+
+/**
+ * special_format - prints a special type of string
+ *
+ * @arg: va_list of integers
+ *
+ * Return: number of bytes
+ */
+int special_format(va_list arg)
+{
+	char *str = va_arg(arg, char*);
+	int i = 0;
+
+	while (str && str[i])
+	{
+		if (str[i] < 32 || str[i] >= 127)
+		{
+			write(1, "\\", 1);
+			write(1, "x", 1);
+			if (str[i] < 16)
+				write(1, "0", 1);
+			_printf("%X", str[i]);
+		}
+		else
+			write(1, str + i, 1);
+		i++;
+	}
+	return (i);
+}
