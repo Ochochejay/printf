@@ -151,5 +151,5 @@ int special_format(va_list arg)
 			len += write(1, str + i, 1);
 		i++;
 	}
-	return (i);
+	return (len);
 }
