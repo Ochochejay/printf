@@ -133,21 +133,23 @@ int unsigned_format(va_list arg)
 int special_format(va_list arg)
 {
 	char *str = va_arg(arg, char*);
-	int i = 0;
+	int i, len;
 
+	len = i = 0;
 	while (str && str[i])
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			write(1, "\\", 1);
 			write(1, "x", 1);
+			len += 2;
 			if (str[i] < 16)
-				write(1, "0", 1);
-			_printf("%X", str[i]);
+				len += write(1, "0", 1);
+			len += _printf("%X", str[i]);
 		}
 		else
-			write(1, str + i, 1);
+			len += write(1, str + i, 1);
 		i++;
 	}
-	return (i);
+	return (len);
 }
