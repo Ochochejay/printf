@@ -140,9 +140,7 @@ int special_format(va_list arg)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			write(1, "\\", 1);
-			write(1, "x", 1);
-			len += 2;
+			len += _printf("%s", "\\x");
 			if (str[i] < 16)
 				len += write(1, "0", 1);
 			len += _printf("%X", str[i]);
@@ -151,5 +149,32 @@ int special_format(va_list arg)
 			len += write(1, str + i, 1);
 		i++;
 	}
+	return (len);
+}
+
+/**
+ * p_format - prefixes 0x and print a number in hex format
+ * to stdout.
+ *
+ * @arg: Va_list arg
+ *
+ * Return: Total length
+ */
+
+int p_format(va_list arg)
+{
+	long int num;
+	int len = 0;
+
+	num = va_arg(arg, int);
+
+	if (num == 0)
+		len += _printf("%s", "(nil)");
+	else
+	{
+		len += _printf("%s", "0x");
+		len += _printf("%x", num);
+	}
+
 	return (len);
 }
