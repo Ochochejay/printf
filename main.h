@@ -27,6 +27,7 @@ int octal_format(va_list arg);
 int big_hex_format(va_list arg);
 int small_hex_format(va_list arg);
 int unsigned_format(va_list arg);
+int special_format(va_list arg);
 int (*specifier(char c))(va_list);
 
 #endif /*MAIN_H*/
