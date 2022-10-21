@@ -20,6 +20,7 @@ int (*specifier(char c))(va_list)
 		{'u', unsigned_format},
 		{'S', special_format},
 		{'p', p_format},
+		{'r', reverse_string},
 		{'\0', NULL}
 	};
 	int i = 0;
