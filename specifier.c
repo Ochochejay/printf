@@ -21,6 +21,7 @@ int (*specifier(char c))(va_list)
 		{'S', special_format},
 		{'p', p_format},
 		{'r', reverse_string},
+		{'R', rot13},
 		{'\0', NULL}
 	};
 	int i = 0;
