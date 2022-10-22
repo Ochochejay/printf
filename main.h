@@ -31,5 +31,6 @@ int special_format(va_list arg);
 int (*specifier(char c))(va_list);
 int p_format(va_list arg);
 int reverse_string(va_list arg);
+int rot13(va_list arg);
 
 #endif /*MAIN_H*/
